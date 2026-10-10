@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DND 职业性格测试 · 你注定成为哪种冒险者</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ================= 落地页 ================= -->
+<main class="screen screen--landing is-active" id="screen-landing">
+
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__veil" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <div class="d20" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M50 6l38 22v44L50 94 12 72V28L50 6z"/>
+          <path d="M12 28l38 22 38-22M50 50v44M50 50L31 16.5M50 50l19-33.5M50 50l-38 22M50 50l38 22"/>
+          <text x="50" y="63" text-anchor="middle" font-family="Cinzel, serif" font-size="20" fill="currentColor" stroke="none" font-weight="700">20</text>
+        </svg>
+      </div>
+
+      <p class="eyebrow reveal">CLASS APTITUDE · 经典职业倾向测试</p>
+      <h1 class="hero__title reveal">
+        <span class="hero__title-cn">DND 职业性格测试</span>
+        <span class="hero__title-sub">二十一道抉择，照见你灵魂中的冒险者</span>
+      </h1>
+
+      <p class="hero__desc">
+        这里没有“你喜欢什么颜色”式的敷衍标签。<br>
+        只有酒馆拼桌、岔路掷骰、符文秘门、当街围殴与深夜签下的深渊契约——<br>
+        请按真实的自己作答，别端着。你在每个离谱处境里的本能反应，都会出卖你的职业天赋。
+      </p>
+
+      <button class="btn btn--gold reveal" data-action="start">
+        <span>开始测试</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+
+      <dl class="stats reveal">
+        <div class="stat"><dt>08–12</dt><dd>分钟完成</dd></div>
+        <div class="stat__sep" aria-hidden="true">◆</div>
+        <div class="stat"><dt>21</dt><dd>道情景抉择</dd></div>
+        <div class="stat__sep" aria-hidden="true">◆</div>
+        <div class="stat"><dt>12</dt><dd>大经典职业</dd></div>
+        <div class="stat__sep" aria-hidden="true">◆</div>
+        <div class="stat"><dt>100%</dt><dd>本地隐私保护</dd></div>
+      </dl>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true"><span></span>下 滚</div>
+  </section>
+
+  <!-- 十二职业 -->
+  <section class="section">
+    <header class="section__head">
+      <p class="section__eyebrow">TWELVE CLASSES</p>
+      <h2 class="section__title">十二大经典职业</h2>
+      <p class="section__lead">脱胎于龙与地下城经典规则，每个职业都是一种面对世界的方式。<br>你的答案，将归向其中之一。</p>
+    </header>
+    <div class="class-grid" id="classGrid"><!-- JS 渲染 --></div>
+  </section>
+
+  <!-- 典型组合 -->
+  <section class="section section--alt">
+    <header class="section__head">
+      <p class="section__eyebrow">ARCHETYPES</p>
+      <h2 class="section__title">三种典型天赋画像</h2>
+      <p class="section__lead">测试不仅给出唯一职业，还会呈现你灵魂中并立的几种力量。</p>
+    </header>
+
+    <div class="archetypes">
+      <article class="arch-card">
+        <div class="arch-card__emblems">
+          <span class="mini-emblem" data-key="fighter"></span>
+          <span class="mini-emblem" data-key="paladin"></span>
+          <span class="mini-emblem" data-key="cleric"></span>
+        </div>
+        <h3>战场统帅型</h3>
+        <p class="arch-card__combo">战士 + 圣武士 + 牧师</p>
+        <p>队伍里最让人安心的存在。你用纪律顶住正面，用信念凝聚人心，在所有人崩溃时依然站着。领袖气质不是天赋，是你一次次挡在别人身前换来的。</p>
+      </article>
+
+      <article class="arch-card">
+        <div class="arch-card__emblems">
+          <span class="mini-emblem" data-key="wizard"></span>
+          <span class="mini-emblem" data-key="warlock"></span>
+          <span class="mini-emblem" data-key="sorcerer"></span>
+        </div>
+        <h3>奥法追寻者</h3>
+        <p class="arch-card__combo">法师 + 邪术师 + 术士</p>
+        <p>你为世界运行的规则着迷：有人靠苦读，有人靠血脉，有人敢与深渊议价。手无缚鸡之力又如何——当咒语完成，现实将按你的意志改写。</p>
+      </article>
+
+      <article class="arch-card">
+        <div class="arch-card__emblems">
+          <span class="mini-emblem" data-key="ranger"></span>
+          <span class="mini-emblem" data-key="druid"></span>
+          <span class="mini-emblem" data-key="rogue"></span>
+        </div>
+        <h3>边境潜行者</h3>
+        <p class="arch-card__combo">游侠 + 德鲁伊 + 游荡者</p>
+        <p>你游离在篝火照亮的范围之外，认得足迹、风向与影子的形状。你不与敌人正面交锋——你等他们犯错，然后用一箭、一爪或一把匕首结束争论。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 最终 CTA -->
+  <section class="final-cta">
+    <div class="final-cta__frame">
+      <p class="eyebrow">THE DICE ARE CAST</p>
+      <h2>准备好踏入地下城了吗？</h2>
+      <p>不必抢答，也没有标准答案。<br>别端着，别装圣人——你在最离谱的处境下做出的选择，才是真的你。</p>
+      <button class="btn btn--gold btn--lg" data-action="start">
+        <span>掷下你的骰子</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+    <p class="footer-note">粉丝自制趣味测试 · 职业设定灵感来自 D&amp;D 经典规则 · 所有作答仅保存在你的浏览器中</p>
+  </section>
+</main>
+
+<!-- ================= 答题页 ================= -->
+<main class="screen screen--test" id="screen-test">
+  <div class="quiz">
+    <header class="quiz__top">
+      <button class="quiz__back" id="btnBack" aria-label="返回上一题">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        上一题
+      </button>
+      <div class="quiz__meta">
+        <span class="quiz__type" id="qType">情景抉择</span>
+        <span class="quiz__count"><em id="qIndex">1</em> / <em id="qTotal">21</em></span>
+      </div>
+    </header>
+
+    <div class="progress" aria-hidden="true">
+      <div class="progress__bar" id="progressBar"></div>
+      <div class="progress__runes" id="progressRunes"></div>
+    </div>
+
+    <div class="quiz__body" id="quizBody"><!-- JS 渲染题目 --></div>
+  </div>
+</main>
+
+<!-- ================= 结果页 ================= -->
+<main class="screen screen--result" id="screen-result">
+  <div class="result" id="resultBody"><!-- JS 渲染结果 --></div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
